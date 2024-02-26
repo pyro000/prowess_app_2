@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "519296320778",
+    "project_id": "prowess-web-database",
+    "storage_bucket": "prowess-web-database.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:519296320778:android:f3ffac7c73dcc7cc4866f3",
+        "android_client_info": {
+          "package_name": "com.example.prowes_motorizado"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "519296320778-ioec4d447g5pdbgl3cbilbhe9g7vg644.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIU01HicfGx6dYpdMyTA2nJ4ZVeyW0V8o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "519296320778-ioec4d447g5pdbgl3cbilbhe9g7vg644.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
