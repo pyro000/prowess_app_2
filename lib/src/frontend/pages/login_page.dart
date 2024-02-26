@@ -45,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
                   padding: EdgeInsets.symmetric(vertical: 12.h),
                   child: Center(
                     child: Image.asset(
-                      'assets/images/Logo_1.png',
+                      'assets/images/Logoold_1.png',
                       width: 200.h,
                     ),
                   ),
@@ -163,8 +163,9 @@ class _LoginPageState extends State<LoginPage> {
                                         mainProvider.data = json.encode(resp);
                                       } else {
                                         SnackBarTool.showSnackbar(
-                                          context, 
-                                          text: "Usuario y/o Contraseña incorrectos...",
+                                          context,
+                                          text:
+                                              "Usuario y/o Contraseña incorrectos...",
                                         );
                                       }
                                     }
@@ -195,10 +196,13 @@ class _LoginPageState extends State<LoginPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (BuildContext context) =>
-                            //const RecoveryPasswordPage(),
-                            PageBuilder(bodyWidget: const RecoveryPassword(), title: Container(), colored: false,)
-                      ),
+                          builder: (BuildContext context) =>
+                              //const RecoveryPasswordPage(),
+                              PageBuilder(
+                                bodyWidget: const RecoveryPassword(),
+                                title: Container(),
+                                colored: false,
+                              )),
                     );
                   },
                   child: const Text(
@@ -213,7 +217,8 @@ class _LoginPageState extends State<LoginPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (BuildContext context) => const SignUpUserPage(role: "Cliente"),
+                        builder: (BuildContext context) =>
+                            const SignUpUserPage(role: "Cliente"),
                       ),
                     );
                   },

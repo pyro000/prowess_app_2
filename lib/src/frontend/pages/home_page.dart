@@ -157,7 +157,7 @@ class _HomePageState extends State<HomePage> {
                 Container(
                   margin: EdgeInsets.symmetric(vertical: 20.h),
                   child: Image.asset(
-                    'assets/images/Logo_2.png',
+                    'assets/images/Logo_2.1.png',
                     fit: BoxFit.contain,
                     height: 100.h,
                     width: 100.h,
@@ -188,7 +188,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: CustomColors.primaryColor,
         onButtonPressed: onButtonPressed,
         iconSize: 32.h,
-        activeColor: Colors.black,
+        activeColor: Colors.white,
         selectedIndex: selectedIndex,
         barItems: <BarItem>[
           BarItem(icon: Icons.person_outline, title: 'Perfil'),

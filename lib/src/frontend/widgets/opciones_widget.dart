@@ -11,7 +11,6 @@ class OpcionesWidget extends StatefulWidget {
 }
 
 class _OpcionesWidgetState extends State<OpcionesWidget> {
-  
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -68,7 +67,7 @@ class _OpcionesWidgetState extends State<OpcionesWidget> {
               height: 452,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/backcontainer.png'),
+                  image: AssetImage('assets/images/backcontainer_1.png'),
                   fit: BoxFit.cover,
                 ),
               ),

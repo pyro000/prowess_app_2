@@ -9,19 +9,17 @@ class ButtonTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return 
-      Row(
-        children: [
-          Spacer(),
-          Image.asset(
-            'assets/images/Logo_2.png',
-            alignment: Alignment.centerRight,
-            fit: BoxFit.contain,
-            height: 100.h,
-            width: 100.h,
-          ),
-          Spacer(),
-          bodyWidget,
-        ]); 
+    return Row(children: [
+      Spacer(),
+      Image.asset(
+        'assets/images/Logo_2.1.png',
+        alignment: Alignment.centerRight,
+        fit: BoxFit.contain,
+        height: 100.h,
+        width: 100.h,
+      ),
+      Spacer(),
+      bodyWidget,
+    ]);
   }
 }

@@ -9,7 +9,13 @@ class PageBuilder extends StatelessWidget {
   final bool colored;
   final bool navigation;
 
-  const PageBuilder({Key? key, required this.bodyWidget, this.title, this.colored = true, this.navigation = true}) : super(key: key);
+  const PageBuilder(
+      {Key? key,
+      required this.bodyWidget,
+      this.title,
+      this.colored = true,
+      this.navigation = true})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,28 +23,32 @@ class PageBuilder extends StatelessWidget {
       appBar: AppBar(
         elevation: 10.h,
         backgroundColor: Colors.white,
-        leading: navigation ? IconButton(
-          padding: EdgeInsets.zero,
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.black,
-          ),
-          iconSize: 20.h,
-          tooltip: 'Regresar',
-          color: Colors.black,
-          onPressed: () => Navigator.of(context).pop(),
-        ) : null,
-         flexibleSpace: colored ? Container(
-          decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                CustomColors.primaryColor, 
-                CustomColors.primaryColor,
-                CustomColors.primaryColor, 
-              ])),
-        ) : null,
+        leading: navigation
+            ? IconButton(
+                padding: EdgeInsets.zero,
+                icon: const Icon(
+                  Icons.arrow_back,
+                  color: Colors.white,
+                ),
+                iconSize: 20.h,
+                tooltip: 'Regresar',
+                color: Colors.black,
+                onPressed: () => Navigator.of(context).pop(),
+              )
+            : null,
+        flexibleSpace: colored
+            ? Container(
+                decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [
+                      CustomColors.primaryColor,
+                      CustomColors.primaryColor,
+                      CustomColors.primaryColor,
+                    ])),
+              )
+            : null,
         toolbarHeight: 50.h,
         centerTitle: true,
         title: title ?? defaultTitle(),
@@ -46,7 +56,6 @@ class PageBuilder extends StatelessWidget {
       body: bodyWidget,
     );
   }
-
 
   Widget defaultTitle() {
     return Image.asset(
@@ -57,4 +66,3 @@ class PageBuilder extends StatelessWidget {
     );
   }
 }
-

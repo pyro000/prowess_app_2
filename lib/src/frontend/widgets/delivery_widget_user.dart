@@ -71,13 +71,13 @@ class _DeliveryWidgetState extends State<DeliveryWidgetUser> {
           child: Row(
             children: [
               Image.asset(
-                'assets/images/almuerzo.png',
+                'assets/images/tienda.jpg',
                 height: 24.0,
                 width: 24.0,
               ),
               SizedBox(width: 8.0),
               Text(
-                'Menú',
+                'Lista de productos',
                 style: TextStyle(
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
