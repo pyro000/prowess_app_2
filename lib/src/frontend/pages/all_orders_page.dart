@@ -73,11 +73,9 @@ class _PageLocationState extends State<AllOrders> {
   Future<void> _initializeData() async {
     log("_initializeData loc");
 
-
     await _downloadAddres();
 
-
-    for (var lL in latLines){
+    for (var lL in latLines) {
       await setRoutes(lL);
     }
 
@@ -104,7 +102,6 @@ class _PageLocationState extends State<AllOrders> {
         _isLoading = false;
       });
     }
-    
   }
 
   _showSnackBar(String msg) {
@@ -123,9 +120,7 @@ class _PageLocationState extends State<AllOrders> {
   Widget build(BuildContext context) {
     Map<String, dynamic> content = json.decode(MainProvider.instance.data);
 
-    isadmin = content["rol"] == "Administrador" ||
-        content["rol"] == "Cliente";
-
+    isadmin = content["rol"] == "Administrador" || content["rol"] == "Cliente";
 
     return Scaffold(
         appBar: AppBar(
@@ -134,7 +129,7 @@ class _PageLocationState extends State<AllOrders> {
               padding: EdgeInsets.symmetric(horizontal: 0.h),
               icon: const Icon(
                 Icons.arrow_back,
-                color: Colors.black,
+                color: Colors.white,
               ),
               iconSize: 20.h,
               tooltip: 'Regresar',
@@ -157,7 +152,7 @@ class _PageLocationState extends State<AllOrders> {
           centerTitle: true,
           title: Image.asset(
             //cambiar imagen
-            'assets/images/Logo_3.png',
+            'assets/images/Logo_2.1.png',
             fit: BoxFit.contain,
             height: 100.h,
             width: 100.h,
@@ -170,12 +165,12 @@ class _PageLocationState extends State<AllOrders> {
                   padding:
                       EdgeInsets.only(bottom: isadmin ? 0 : _collapsedHeight),
                   child: Builder(builder: (context) {
-                      if (renderTriggers[0] == 0) {
-                        _latacunga = CameraPosition(
-                          target: LatVen,
-                          zoom: 16,
-                        );
-                      }
+                    if (renderTriggers[0] == 0) {
+                      _latacunga = CameraPosition(
+                        target: LatVen,
+                        zoom: 16,
+                      );
+                    }
 
                     log("LEN: ${_polyline.length}");
 
@@ -255,7 +250,7 @@ class _PageLocationState extends State<AllOrders> {
   setRoutes(List<LatLng> ll) async {
     log("setRoutes");
     await addRoute(ll, idp);
-   
+
     if (_polyline.isEmpty) {
       log("Falló creando Rutas, usando Lineas Rectas...");
       usingRoutes = false;
@@ -269,8 +264,8 @@ class _PageLocationState extends State<AllOrders> {
     log("downAddr()");
 
     var col = FirestoreManager.instance.firestore
-          .collection("UsuariosDel")
-          .where("rol", isEqualTo: "Administrador");
+        .collection("UsuariosDel")
+        .where("rol", isEqualTo: "Administrador");
 
     var adl = await FirestoreManager.instance.getData("", collection: col);
     var admin = adl.first;
@@ -280,11 +275,12 @@ class _PageLocationState extends State<AllOrders> {
     _markers.add(Marker(
         icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
         markerId: const MarkerId('Vendedor'),
-        position: LatLng(double.parse(coords["lat"]), double.parse(coords["long"])),
+        position:
+            LatLng(double.parse(coords["lat"]), double.parse(coords["long"])),
         infoWindow: const InfoWindow(title: 'Vendedor')));
-    
+
     LatVen = LatLng(double.parse(coords["lat"]), double.parse(coords["long"]));
-    
+
     var content = json.decode(MainProvider.instance.data);
 
     var uid = isadmin ? "" : content["uid"];
@@ -318,37 +314,37 @@ class _PageLocationState extends State<AllOrders> {
           .collection("UsuariosDel")
           .where("rol", isEqualTo: "Cliente");
 
-    var cll = await FirestoreManager.instance.getData("", collection: col1);
+      var cll = await FirestoreManager.instance.getData("", collection: col1);
 
-    var motl = await FirestoreManager.instance.getData("UsuariosDel");
+      var motl = await FirestoreManager.instance.getData("UsuariosDel");
 
-    for (int i = motl.length-1; i >= 0; i--) {
-      var m = motl[i];
-      if (cll.any((mapa) => mapa["uid"] == m["uid"])){
-        motl.removeAt(i);
-      } else if (adl.any((mapa) => mapa["uid"] == m["uid"])){
-        motl.removeAt(i);
+      for (int i = motl.length - 1; i >= 0; i--) {
+        var m = motl[i];
+        if (cll.any((mapa) => mapa["uid"] == m["uid"])) {
+          motl.removeAt(i);
+        } else if (adl.any((mapa) => mapa["uid"] == m["uid"])) {
+          motl.removeAt(i);
+        }
+      }
+
+      for (var m in motl) {
+        try {
+          var coords = m["datos"]["coords"];
+          motPos =
+              LatLng(double.parse(coords["lat"]), double.parse(coords["long"]));
+
+          final Uint8List markerIcon =
+              await getBytesFromAsset('assets/images/bicicleta.png', 100);
+          _markers.add(Marker(
+              icon: BitmapDescriptor.fromBytes(markerIcon),
+              markerId: const MarkerId('Motorizado'),
+              position: motPos!,
+              infoWindow: const InfoWindow(title: 'Motorizado')));
+        } catch (e) {
+          log("error motmapglobal: $e");
+        }
       }
     }
-
-    for (var m in motl) {
-      try {
-        var coords = m["datos"]["coords"];
-        motPos = LatLng(double.parse(coords["lat"]), double.parse(coords["long"]));
-
-        final Uint8List markerIcon =
-          await getBytesFromAsset('assets/images/bicicleta.png', 100);
-      _markers.add(Marker(
-          icon: BitmapDescriptor.fromBytes(markerIcon),
-          markerId: const MarkerId('Motorizado'),
-          position: motPos!,
-          infoWindow: const InfoWindow(title: 'Motorizado')));
-      } catch (e) {
-        log("error motmapglobal: $e");
-      }
-    }
-    }
-    
   }
 
   Color colorAlAzar() {
@@ -358,12 +354,12 @@ class _PageLocationState extends State<AllOrders> {
   }
 
   _obtenerlinea(List<LatLng> ll, int id) async {
-      _polyline.add(Polyline(
-        polylineId: PolylineId('route$id'),
-        points: ll,
-        color: colorAlAzar(),
-        width: 6,
-      ));
+    _polyline.add(Polyline(
+      polylineId: PolylineId('route$id'),
+      points: ll,
+      color: colorAlAzar(),
+      width: 6,
+    ));
   }
 
   _setPolyline(int id, List<LatLng> lines, {bool force = false}) async {
@@ -372,7 +368,8 @@ class _PageLocationState extends State<AllOrders> {
 
       if (usingRoutes) {
         List<LatLng> polylineCoordinates = await generateRoute(lines);
-        _polyline[id] = genPolyline(polylineCoordinates, id/*, Colors.orange*/);
+        _polyline[id] =
+            genPolyline(polylineCoordinates, id /*, Colors.orange*/);
       } else {
         _polyline[id] = Polyline(
           polylineId: PolylineId("route$id"),

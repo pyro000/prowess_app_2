@@ -70,7 +70,7 @@ class _SingUpPageState extends State<SingUpPage> {
             child: Padding(
               padding: EdgeInsets.fromLTRB(0, 5.h, 0, 0),
               child: Image.asset(
-                'assets/images/Logo_1.png',
+                'assets/images/Logoold_1.1.png',
                 width: 300,
               ),
             ),
@@ -112,7 +112,7 @@ class _SingUpPageState extends State<SingUpPage> {
                   ],
                 );
               },
-              physics:  const ClampingScrollPhysics(),
+              physics: const ClampingScrollPhysics(),
               elevation: 10.h,
               currentStep: _currentStep,
               onStepContinue: () {
@@ -374,8 +374,7 @@ class _SingUpPageState extends State<SingUpPage> {
                                                     () => _onSaving = true);
                                               }
                                               if (_image != null) {
-                                                Usuario motorizado =
-                                                    Usuario(
+                                                Usuario motorizado = Usuario(
                                                   email: _bloc.email,
                                                   password: _bloc.password,
                                                 );
@@ -395,9 +394,9 @@ class _SingUpPageState extends State<SingUpPage> {
                                                   motorizado = Usuario(
                                                       email: _bloc.email,
                                                       password: resp["pass"],
-                                                      name:_bloc.username,
+                                                      name: _bloc.username,
                                                       telefono: _bloc.number,
-                                                      sector:_bloc.direction,
+                                                      sector: _bloc.direction,
                                                       cedula: _bloc.id,
                                                       tipoLic: _valueSelected,
                                                       caducidadLic: _fecha,
@@ -425,16 +424,24 @@ class _SingUpPageState extends State<SingUpPage> {
                                                   }
                                                 }
                                                 if (resp["response"] == 201) {
-                                                  SnackBarTool.showSnackbar(context, text: "Motorizado Registrado",);
+                                                  SnackBarTool.showSnackbar(
+                                                    context,
+                                                    text:
+                                                        "Motorizado Registrado",
+                                                  );
 
                                                   Navigator.popUntil(context,
                                                       ModalRoute.withName('/'));
                                                 } else {
-                                                  SnackBarTool.showSnackbar(context, text: "ERROR al registrar. Intentelo mas tarde.",);
+                                                  SnackBarTool.showSnackbar(
+                                                    context,
+                                                    text:
+                                                        "ERROR al registrar. Intentelo mas tarde.",
+                                                  );
                                                 }
                                                 if (mounted) {
-                                                setState(
-                                                  () => _onSaving = false);
+                                                  setState(
+                                                      () => _onSaving = false);
                                                 }
                                               }
                                             }
@@ -563,10 +570,16 @@ class _SingUpPageState extends State<SingUpPage> {
     XFile? pickedFile = await ImagePicker().pickImage(source: source);
     if (pickedFile != null) {
       _image = File(pickedFile.path);
-      SnackBarTool.showSnackbar(context, text: "Imagen seleccionada correctamente.",);
+      SnackBarTool.showSnackbar(
+        context,
+        text: "Imagen seleccionada correctamente.",
+      );
     } else {
       _image = null;
-      SnackBarTool.showSnackbar(context, text: "No se seleccionó ninguna imagen.",);
+      SnackBarTool.showSnackbar(
+        context,
+        text: "No se seleccionó ninguna imagen.",
+      );
     }
     if (mounted) {
       setState(() {});

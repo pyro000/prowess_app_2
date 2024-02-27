@@ -59,7 +59,7 @@ class PageBuilder extends StatelessWidget {
 
   Widget defaultTitle() {
     return Image.asset(
-      'assets/images/Logo_2.png',
+      'assets/images/Logo_2.1.png',
       fit: BoxFit.contain,
       height: 100.h,
       width: 100.h,

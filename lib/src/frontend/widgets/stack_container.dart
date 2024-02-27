@@ -37,7 +37,7 @@ class StackContainer extends StatelessWidget {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(
-                      'assets/images/${isadmin ? "admin" : "motorizado_1"}.jpg'),
+                      'assets/images/${isadmin ? "admin_1" : "motorizado_1"}.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),

@@ -67,7 +67,7 @@ class _OpcionesWidgetState extends State<OpcionesWidget> {
               height: 452,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/backcontainer_1.png'),
+                  image: AssetImage('assets/images/backcontainer_2.png'),
                   fit: BoxFit.cover,
                 ),
               ),

@@ -56,7 +56,7 @@ class _SignUpUserPage extends State<SignUpUserPage> {
               padding: EdgeInsets.symmetric(vertical: 12.h),
               child: Center(
                 child: Image.asset(
-                  'assets/images/Logo_1.png',
+                  'assets/images/Logoold_1.1.png',
                   width: 200.h,
                 ),
               ),
@@ -246,14 +246,14 @@ class _SignUpUserPage extends State<SignUpUserPage> {
 
                                           if (urlImage.isNotEmpty) {
                                             motorizado = Usuario(
-                                                email: _bloc.email,
-                                                password: resp["pass"],
-                                                name: _bloc.username,
-                                                telefono: _bloc.number,
-                                                sector: _bloc.direction,
-                                                cedula: _bloc.id,
-                                                profileImage: urlImage,
-                                                role: widget.role,
+                                              email: _bloc.email,
+                                              password: resp["pass"],
+                                              name: _bloc.username,
+                                              telefono: _bloc.number,
+                                              sector: _bloc.direction,
+                                              cedula: _bloc.id,
+                                              profileImage: urlImage,
+                                              role: widget.role,
                                             );
 
                                             Map<String, dynamic> map =
@@ -266,14 +266,21 @@ class _SignUpUserPage extends State<SignUpUserPage> {
                                           }
                                         }
                                         if (resp["response"] == 201) {
-                                          SnackBarTool.showSnackbar(context, text: "Cliente Registrado.",);
+                                          SnackBarTool.showSnackbar(
+                                            context,
+                                            text: "Cliente Registrado.",
+                                          );
                                           if (mounted) {
                                             setState(() => _onSaving = false);
                                           }
                                           Navigator.popUntil(context,
                                               ModalRoute.withName('/'));
                                         } else {
-                                          SnackBarTool.showSnackbar(context, text: "Error al registrar. Intentelo más tarde.",);
+                                          SnackBarTool.showSnackbar(
+                                            context,
+                                            text:
+                                                "Error al registrar. Intentelo más tarde.",
+                                          );
                                           await FirestoreManager.instance
                                               .deleteData(
                                                   "UsuariosDel", resp["uid"]);
@@ -365,10 +372,16 @@ class _SignUpUserPage extends State<SignUpUserPage> {
     XFile? pickedFile = await ImagePicker().pickImage(source: source);
     if (pickedFile != null) {
       _image = File(pickedFile.path);
-      SnackBarTool.showSnackbar(context, text: "Imagen seleccionada correctamente.",);
+      SnackBarTool.showSnackbar(
+        context,
+        text: "Imagen seleccionada correctamente.",
+      );
     } else {
       _image = null;
-      SnackBarTool.showSnackbar(context, text: "No se seleccionó ninguna imagen.",);
+      SnackBarTool.showSnackbar(
+        context,
+        text: "No se seleccionó ninguna imagen.",
+      );
     }
     if (mounted) {
       setState(() {});

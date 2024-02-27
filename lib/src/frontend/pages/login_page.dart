@@ -45,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
                   padding: EdgeInsets.symmetric(vertical: 12.h),
                   child: Center(
                     child: Image.asset(
-                      'assets/images/Logoold_1.png',
+                      'assets/images/Logoold_1.1.png',
                       width: 200.h,
                     ),
                   ),
@@ -206,7 +206,7 @@ class _LoginPageState extends State<LoginPage> {
                     );
                   },
                   child: const Text(
-                    "¿Olvidaste tu contraseña?",
+                    "¿Olvidaste tu contraseña?\n",
                     style: TextStyle(
                       color: Color.fromRGBO(0, 0, 0, 1),
                     ),

@@ -9,11 +9,11 @@ import 'package:prowes_motorizado/src/frontend/widgets/loading_widget.dart';
 import 'package:prowes_motorizado/src/frontend/widgets/motorizados_widget.dart';
 
 class MotorizadoCard extends StatelessWidget {
-  const MotorizadoCard({
-    Key? key, 
-    required this.profileImage,
-    required this.motorizado, 
-    required this.role})
+  const MotorizadoCard(
+      {Key? key,
+      required this.profileImage,
+      required this.motorizado,
+      required this.role})
       : super(key: key);
   final String? profileImage;
   final Usuario motorizado;
@@ -21,12 +21,13 @@ class MotorizadoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     //if (motorizado.role == role) log("${motorizado.uid}  ${motorizado.displayName} ${motorizado.role}");
     return Container(
-      
       margin: EdgeInsets.symmetric(horizontal: 10.h),
-      child: motorizado.role == role || (role.isEmpty && motorizado.role != "Cliente" && motorizado.role != "Administrador")
+      child: motorizado.role == role ||
+              (role.isEmpty &&
+                  motorizado.role != "Cliente" &&
+                  motorizado.role != "Administrador")
           ? Card(
               elevation: 3,
               shadowColor: Colors.deepPurple,
@@ -39,7 +40,8 @@ class MotorizadoCard extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (BuildContext context) => PageBuilder(bodyWidget: ShowMotorizados(motorizado: motorizado)),
+                      builder: (BuildContext context) => PageBuilder(
+                          bodyWidget: ShowMotorizados(motorizado: motorizado)),
                     ),
                   );
                 },
@@ -47,22 +49,27 @@ class MotorizadoCard extends StatelessWidget {
                   margin: EdgeInsets.all(3.h),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [     
-                            Padding(padding: EdgeInsets.all(3.h)),            
+                    children: [
+                      Padding(padding: EdgeInsets.all(3.h)),
                       CircleAvatar(
-                          backgroundColor: Colors.green.shade300,
-                          radius: 45.h,
-                          child: ClipOval(
-                            child: CachedNetworkImage(
-                                width: 114.h, // El doble del radio para asegurar que sea un círculo completo
-                                height: 114.h,
-                                fit: BoxFit.cover,
-                                imageUrl: motorizado.profileImage ?? "",
-                                placeholder: (context, url) => const LoadingIndicator(color: Colors.black,),
-                                errorWidget: (context, url, error) => const Icon(Icons.person),
-                              ),
+                        backgroundColor: Colors.green.shade300,
+                        radius: 45.h,
+                        child: ClipOval(
+                          child: CachedNetworkImage(
+                            width: 114
+                                .h, // El doble del radio para asegurar que sea un círculo completo
+                            height: 114.h,
+                            fit: BoxFit.cover,
+                            imageUrl: motorizado.profileImage ?? "",
+                            placeholder: (context, url) =>
+                                const LoadingIndicator(
+                              color: Colors.black,
+                            ),
+                            errorWidget: (context, url, error) =>
+                                const Icon(Icons.person),
                           ),
-                        ), 
+                        ),
+                      ),
                       Text(
                         motorizado.name ?? "",
                         style: TextStyle(
@@ -86,7 +93,6 @@ class MotorizadoCard extends StatelessWidget {
               ),
             )
           : null,
-    
     );
   }
 }
