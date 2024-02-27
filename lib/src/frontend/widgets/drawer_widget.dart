@@ -31,8 +31,8 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             end: Alignment.bottomRight,
             colors: [
               CustomColors.primaryColor,
-               CustomColors.primaryColor,
-               CustomColors.primaryColor
+              CustomColors.primaryColor,
+              CustomColors.primaryColor
             ],
           ),
         ),
@@ -47,9 +47,9 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   begin: Alignment.centerLeft,
                   end: Alignment.centerRight,
                   colors: [
-                     CustomColors.primaryColor,
-                     CustomColors.primaryColor,
-                     CustomColors.primaryColor
+                    CustomColors.primaryColor,
+                    CustomColors.primaryColor,
+                    CustomColors.primaryColor
                   ],
                 ),
               ),
@@ -58,7 +58,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   // Logo de la aplicación
                   Expanded(
                     child: Image.asset(
-                      'assets/images/Logo_3.png',
+                      'assets/images/Logoold_1.1.png',
                       fit: BoxFit.contain,
                     ),
                   ),

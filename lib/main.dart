@@ -29,7 +29,8 @@ void main() async {
 Future<void> checkConnectivityAndRunApp() async {
   if (Platform.isAndroid) {
     try {
-      await GoogleMapsFlutterAndroid().initializeWithRenderer(AndroidMapRenderer.latest);
+      await GoogleMapsFlutterAndroid()
+          .initializeWithRenderer(AndroidMapRenderer.latest);
     } on PlatformException catch (e) {
       log("Err Renderer Google Maps: $e");
     }
@@ -95,26 +96,35 @@ class _MyAppState extends State<MyApp> {
                 designSize: const Size(360, 690),
                 builder: (BuildContext context, child) => MaterialApp(
                   debugShowCheckedModeBanner: false,
-                  title: 'Prowess Agronomía',
+                  title: 'Prowess Agricola',
                   //theme: AppTheme.themeData(mainProvider.mode),
                   routes: {
-                    "/noInternet": (context) => const PageBuilder(bodyWidget: NoInternet()),
+                    "/noInternet": (context) =>
+                        const PageBuilder(bodyWidget: NoInternet()),
                     "/login": (context) => const LoginPage(),
                     "/signup": (context) => const SingUpPage()
                   },
-                  home: connectivityProvider.isOnline && FirestoreManager.instance.connected
-                      ? connectivityProvider.isLocationEnabled && connectivityProvider.isPermission ? mainProvider.lastLogin == ""
-                          ? const LoginPage()
-                          : dif == null || dif.inDays > 7
+                  home: connectivityProvider.isOnline &&
+                          FirestoreManager.instance.connected
+                      ? connectivityProvider.isLocationEnabled &&
+                              connectivityProvider.isPermission
+                          ? mainProvider.lastLogin == ""
                               ? const LoginPage()
-                              : data["rol"] == "Administrador"
-                                  ? const AdminPage()
-                                  : data["rol"] == "Cliente"
-                                      ? const HomeClientPage()
-                                      : const HomePage()
-                      : const PageBuilder(bodyWidget: NoLocation(), navigation: false,) :
-                      const PageBuilder(bodyWidget: NoInternet(), navigation: false,)
-                      ,
+                              : dif == null || dif.inDays > 7
+                                  ? const LoginPage()
+                                  : data["rol"] == "Administrador"
+                                      ? const AdminPage()
+                                      : data["rol"] == "Cliente"
+                                          ? const HomeClientPage()
+                                          : const HomePage()
+                          : const PageBuilder(
+                              bodyWidget: NoLocation(),
+                              navigation: false,
+                            )
+                      : const PageBuilder(
+                          bodyWidget: NoInternet(),
+                          navigation: false,
+                        ),
                 ),
               );
             }
