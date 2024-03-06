@@ -81,7 +81,7 @@ class _MapPageState extends State<MapPage> {
             padding: EdgeInsets.symmetric(horizontal: 0.h),
             icon: const Icon(
               Icons.arrow_back,
-              color: Colors.black,
+              color: Colors.white,
             ),
             iconSize: 20.h,
             tooltip: 'Regresar',
@@ -105,7 +105,7 @@ class _MapPageState extends State<MapPage> {
         title: Row(children: [
           Spacer(),
           Image.asset(
-            'assets/images/Logo_3.png',
+            'assets/images/Logo_2.1.png',
             alignment: Alignment.centerRight,
             fit: BoxFit.contain,
             height: 100.h,
@@ -122,65 +122,66 @@ class _MapPageState extends State<MapPage> {
                   alignment: Alignment.topRight,
                   children: [
                     GestureDetector(
-          onTap: () async {
-            _isLoading = true;
+                      onTap: () async {
+                        _isLoading = true;
 
-                            final mainProvider = MainProvider.instance;
-                            Map<String, dynamic> content =
-                                json.decode(mainProvider.data);
+                        final mainProvider = MainProvider.instance;
+                        Map<String, dynamic> content =
+                            json.decode(mainProvider.data);
 
-                            List<Map<String, dynamic>> result = [];
-                            
+                        List<Map<String, dynamic>> result = [];
 
-                            for (var p in content["carrito"]) {
-                              Producto prod = Producto.fromJson2(p);
-                              result.add(prod.toJson2());
-                            }
-                            
-                            log("updating loc");
-                            await _usuarioService.updateLocation(
-                                content["uid"], _centerMarkerLocation);
+                        for (var p in content["carrito"]) {
+                          Producto prod = Producto.fromJson2(p);
+                          result.add(prod.toJson2());
+                        }
 
-                            log("publishing");
+                        log("updating loc");
+                        await _usuarioService.updateLocation(
+                            content["uid"], _centerMarkerLocation);
 
-                            var uid = await _pedidoService.newPedido(
-                                result, content["uid"]);
+                        log("publishing");
 
-                            log("New pedido: $uid");
+                        var uid = await _pedidoService.newPedido(
+                            result, content["uid"]);
 
-                            content["carrito"] = [];
-                            mainProvider.data = json.encode(content);
+                        log("New pedido: $uid");
 
-                            SnackBarTool.showSnackbar(context, text: 'Pedido Creado.');
-                            delayedPop(context);
-          },
-          child: Container(
-            padding: const EdgeInsets.all(5.0),
-            margin: EdgeInsets.symmetric(horizontal: 0.h, vertical: 0.h),
-            decoration: BoxDecoration(
-              color: CustomColors.secondaryColor,
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            alignment: Alignment.centerRight,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Confirmar ",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 15.h,
-                  ),
-                ),
-                Icon(
-                  Icons.check,
-                  color: Colors.white,
-                  size: 15.h,
-                ),
-              ],
-            ),
-          ),
-        ),
+                        content["carrito"] = [];
+                        mainProvider.data = json.encode(content);
+
+                        SnackBarTool.showSnackbar(context,
+                            text: 'Pedido Creado.');
+                        delayedPop(context);
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(5.0),
+                        margin: EdgeInsets.symmetric(
+                            horizontal: 0.h, vertical: 0.h),
+                        decoration: BoxDecoration(
+                          color: CustomColors.secondaryColor,
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        alignment: Alignment.centerRight,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Confirmar ",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15.h,
+                              ),
+                            ),
+                            Icon(
+                              Icons.check,
+                              color: Colors.white,
+                              size: 15.h,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
         ]),
@@ -214,7 +215,6 @@ class _MapPageState extends State<MapPage> {
           .startFloat, // Cambiado a la esquina inferior izquierda
     );
   }
-
 }
 
 void main() {

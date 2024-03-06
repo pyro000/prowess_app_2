@@ -133,15 +133,15 @@ class _DetallePedidoState extends State<DetallePedido> {
                   width: 15.h,
                 ),
                 Divider(
-                        height: 8.h,
-                        endIndent: 5.h,
-                        indent: 5.h,
-                        color: Colors.black,
-                        thickness: 1.h,
-                      ),
-                      SizedBox(
-                        height: 5.h,
-                      ),
+                  height: 8.h,
+                  endIndent: 5.h,
+                  indent: 5.h,
+                  color: Colors.black,
+                  thickness: 1.h,
+                ),
+                SizedBox(
+                  height: 5.h,
+                ),
                 Card(
                   elevation: 3,
                   child: Column(
@@ -202,41 +202,40 @@ class _DetallePedidoState extends State<DetallePedido> {
                                         SizedBox(
                                           height: 10.h,
                                         ),
-                                        Container( 
+                                        Container(
                                             width: 250,
-                                            child:
-                                          Row(
-                                            children: [
-                                              Image(
+                                            child: Row(
+                                              children: [
+                                                Image(
                                                   alignment: Alignment.center,
                                                   image: const AssetImage(
                                                       'assets/images/whatsapp.png'),
                                                   width: 20.h,
-                                                  ),
-                                              SizedBox(width: 8.h),
-                                              buildRaisedButton(
-                                                  "WhatsApp",
-                                                  () => launchURL(vendedor
-                                                      .phone
-                                                      .toString()) // Envuelve la llamada a launchURL en una función anónima
-                                                  ),
-                                              SizedBox(width: 10.h),
-                                              Image(
-                                                  alignment: Alignment.center,
-                                                  image: const AssetImage(
-                                                      'assets/images/llamadaentrante.png'),
-                                                  width: 17.h),
-                                              SizedBox(width: 8.h),
-                                              buildRaisedButton(
-                                                  "Llamar",
-                                                  () => launchPhone(vendedor
-                                                      .phone
-                                                      .toString())),
-                                            ],
-                                          )),
-                                          SizedBox(
-                                            height: 10.h,
-                                          ),
+                                                ),
+                                                SizedBox(width: 8.h),
+                                                buildRaisedButton(
+                                                    "WhatsApp",
+                                                    () => launchURL(vendedor
+                                                        .phone
+                                                        .toString()) // Envuelve la llamada a launchURL en una función anónima
+                                                    ),
+                                                SizedBox(width: 10.h),
+                                                Image(
+                                                    alignment: Alignment.center,
+                                                    image: const AssetImage(
+                                                        'assets/images/llamadaentrante.png'),
+                                                    width: 17.h),
+                                                SizedBox(width: 8.h),
+                                                buildRaisedButton(
+                                                    "Llamar",
+                                                    () => launchPhone(vendedor
+                                                        .phone
+                                                        .toString())),
+                                              ],
+                                            )),
+                                        SizedBox(
+                                          height: 10.h,
+                                        ),
                                       ],
                                     ),
                                   ],
@@ -270,8 +269,7 @@ class _DetallePedidoState extends State<DetallePedido> {
                                         textBaseline: TextBaseline.alphabetic,
                                         children: [
                                           Row(
-
-        children: const [
+                                            children: const [
                                               Text(
                                                 'Comprador',
                                                 style: TextStyle(
@@ -301,39 +299,38 @@ class _DetallePedidoState extends State<DetallePedido> {
                                           SizedBox(
                                             height: 10.h,
                                           ),
-                                          
-                                          Container( 
-                                            width: 250,
-                                            child:
-                                          Row(
-                                            children: [
-                                              Image(
-                                                  alignment: Alignment.center,
-                                                  image: const AssetImage(
-                                                      'assets/images/whatsapp.png'),
-                                                  width: 20.h,
+                                          Container(
+                                              width: 250,
+                                              child: Row(
+                                                children: [
+                                                  Image(
+                                                    alignment: Alignment.center,
+                                                    image: const AssetImage(
+                                                        'assets/images/whatsapp.png'),
+                                                    width: 20.h,
                                                   ),
-                                              SizedBox(width: 8.h),
-                                              buildRaisedButton(
-                                                  "WhatsApp",
-                                                  () => launchURL(comprador
-                                                      .phone
-                                                      .toString()) // Envuelve la llamada a launchURL en una función anónima
-                                                  ),
-                                              SizedBox(width: 10.h),
-                                              Image(
-                                                  alignment: Alignment.center,
-                                                  image: const AssetImage(
-                                                      'assets/images/llamadaentrante.png'),
-                                                  width: 17.h),
-                                              SizedBox(width: 8.h),
-                                              buildRaisedButton(
-                                                  "Llamar",
-                                                  () => launchPhone(comprador
-                                                      .phone
-                                                      .toString())),
-                                            ],
-                                          )),
+                                                  SizedBox(width: 8.h),
+                                                  buildRaisedButton(
+                                                      "WhatsApp",
+                                                      () => launchURL(comprador
+                                                          .phone
+                                                          .toString()) // Envuelve la llamada a launchURL en una función anónima
+                                                      ),
+                                                  SizedBox(width: 10.h),
+                                                  Image(
+                                                      alignment:
+                                                          Alignment.center,
+                                                      image: const AssetImage(
+                                                          'assets/images/llamadaentrante.png'),
+                                                      width: 17.h),
+                                                  SizedBox(width: 8.h),
+                                                  buildRaisedButton(
+                                                      "Llamar",
+                                                      () => launchPhone(
+                                                          comprador.phone
+                                                              .toString())),
+                                                ],
+                                              )),
                                           SizedBox(
                                             height: 10.h,
                                           ),
@@ -346,19 +343,17 @@ class _DetallePedidoState extends State<DetallePedido> {
                             ),
                             motorizado!.name!.isNotEmpty
                                 ? Divider(
-                              height: 8.h,
-                              color: Colors.black,
-                              thickness: 1.h,
-                            ) : Container(),
-
-                             SizedBox(
-                                        height: 10.h,
-                                      ),
-                            
+                                    height: 8.h,
+                                    color: Colors.black,
+                                    thickness: 1.h,
+                                  )
+                                : Container(),
+                            SizedBox(
+                              height: 10.h,
+                            ),
                             motorizado.name!.isNotEmpty
                                 ? Row(
                                     children: [
-                                     
                                       SizedBox(
                                         height: 40.h,
                                         width: 60.h,
@@ -411,41 +406,42 @@ class _DetallePedidoState extends State<DetallePedido> {
                                             SizedBox(
                                               height: 10.h,
                                             ),
-                                            Container( 
-                                            width: 250,
-                                            child:
-                                          Row(
-                                            children: [
-                                              Image(
-                                                  alignment: Alignment.center,
-                                                  image: const AssetImage(
-                                                      'assets/images/whatsapp.png'),
-                                                  width: 20.h,
-                                                  ),
-                                              SizedBox(width: 8.h),
-                                              buildRaisedButton(
-                                                  "WhatsApp",
-                                                  () => launchURL(motorizado
-                                                      .telefono
-                                                      .toString()) // Envuelve la llamada a launchURL en una función anónima
-                                                  ),
-                                              SizedBox(width: 10.h),
-                                              Image(
-                                                  alignment: Alignment.center,
-                                                  image: const AssetImage(
-                                                      'assets/images/llamadaentrante.png'),
-                                                  width: 17.h),
-                                              SizedBox(width: 8.h),
-                                              buildRaisedButton(
-                                                  "Llamar",
-                                                  () => launchPhone(motorizado
-                                                      .telefono
-                                                      .toString())),
-                                            ],
-                                          )),
-                                          SizedBox(
-                                            height: 10.h,
-                                          ),
+                                            Container(
+                                                width: 250,
+                                                child: Row(
+                                                  children: [
+                                                    Image(
+                                                      alignment:
+                                                          Alignment.center,
+                                                      image: const AssetImage(
+                                                          'assets/images/whatsapp.png'),
+                                                      width: 20.h,
+                                                    ),
+                                                    SizedBox(width: 8.h),
+                                                    buildRaisedButton(
+                                                        "WhatsApp",
+                                                        () => launchURL(motorizado
+                                                            .telefono
+                                                            .toString()) // Envuelve la llamada a launchURL en una función anónima
+                                                        ),
+                                                    SizedBox(width: 10.h),
+                                                    Image(
+                                                        alignment:
+                                                            Alignment.center,
+                                                        image: const AssetImage(
+                                                            'assets/images/llamadaentrante.png'),
+                                                        width: 17.h),
+                                                    SizedBox(width: 8.h),
+                                                    buildRaisedButton(
+                                                        "Llamar",
+                                                        () => launchPhone(
+                                                            motorizado.telefono
+                                                                .toString())),
+                                                  ],
+                                                )),
+                                            SizedBox(
+                                              height: 10.h,
+                                            ),
                                           ],
                                         ),
                                       )
@@ -499,19 +495,17 @@ class _DetallePedidoState extends State<DetallePedido> {
                       rol == "Administrador"
                           ? GestureDetector(
                               onTap: () async {
-                                bool cancel = await showCustomDialog(
-                                              context,
-                                              options: const [
-                                                "Alerta",
-                                                "¿Está seguro/a de reiniciar el pedido? Va a eliminarse el motorizado de la orden y se marcará como Listo nuevamente.",
-                                                "Si",
-                                                "No"
-                                              ]) ??
-                                          false;
+                                bool cancel = await showCustomDialog(context,
+                                        options: const [
+                                          "Alerta",
+                                          "¿Está seguro/a de reiniciar el pedido? Va a eliminarse el motorizado de la orden y se marcará como Listo nuevamente.",
+                                          "Si",
+                                          "No"
+                                        ]) ??
+                                    false;
 
-                                      if (cancel) {
-
-                                Navigator.of(context).push(MaterialPageRoute(
+                                if (cancel) {
+                                  Navigator.of(context).push(MaterialPageRoute(
                                       builder: (_) => Container(
                                           decoration: const BoxDecoration(
                                             color: Colors.white,
@@ -523,7 +517,7 @@ class _DetallePedidoState extends State<DetallePedido> {
                                     Navigator.of(context).pop();
                                     Navigator.of(context).pop();
                                   });
-                                      }
+                                }
                               },
                               child: Container(
                                 padding: const EdgeInsets.all(8.0),
@@ -555,47 +549,51 @@ class _DetallePedidoState extends State<DetallePedido> {
                               ),
                             )
                           : Container(),
-                      rol == "Cliente" || rol == "Administrador" || (status != "Completado" && content["uid"] == motorizado.uid)
-                    ?
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (BuildContext context) => PageLocation(
-                                  pedido: pedido /*.numPedido ?? ""*/),
-                            ),
-                          );
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.all(8.0),
-                          margin: EdgeInsets.symmetric(
-                              horizontal: 50.h, vertical: 5.h),
-                          decoration: BoxDecoration(
-                            color: CustomColors.secondaryColor,
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          alignment: Alignment.center,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Acceder Mapa ",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20.h,
+                      rol == "Cliente" ||
+                              rol == "Administrador" ||
+                              (status != "Completado" &&
+                                  content["uid"] == motorizado.uid)
+                          ? GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        PageLocation(
+                                            pedido:
+                                                pedido /*.numPedido ?? ""*/),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.all(8.0),
+                                margin: EdgeInsets.symmetric(
+                                    horizontal: 50.h, vertical: 5.h),
+                                decoration: BoxDecoration(
+                                  color: CustomColors.secondaryColor,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                alignment: Alignment.center,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "Acceder Mapa ",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20.h,
+                                      ),
+                                    ),
+                                    Icon(
+                                      Icons.location_on,
+                                      color: Colors.white,
+                                      size: 25.h,
+                                    ),
+                                  ],
                                 ),
                               ),
-                              Icon(
-                                Icons.location_on,
-                                color: Colors.white,
-                                size: 25.h,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ) : Container(),
-                     
+                            )
+                          : Container(),
                       _showButton
                           ? GestureDetector(
                               onTap: () => aceptarPedido(pedido),
@@ -629,14 +627,17 @@ class _DetallePedidoState extends State<DetallePedido> {
                               ),
                             )
                           : Container(),
-                      
                       rol == "Administrador"
                           ? GestureDetector(
                               onTap: () async {
-                                await FirestoreManager.instance.postData("OrdenDel", {"ord_cocinado": !pedido.cocinado!}, uid: pedido.numPedido!, edit: true);
+                                await FirestoreManager.instance.postData(
+                                    "OrdenDel",
+                                    {"ord_cocinado": !pedido.cocinado!},
+                                    uid: pedido.numPedido!,
+                                    edit: true);
                                 SnackBarTool.showSnackbar(context,
-            text:
-                "Pedido marcado como ${!pedido.cocinado! ? "Listo" : "Pendiente"}.");
+                                    text:
+                                        "Pedido marcado como ${!pedido.cocinado! ? "Listo" : "Pendiente"}.");
                               },
                               child: Container(
                                 padding: const EdgeInsets.all(8.0),
@@ -668,35 +669,33 @@ class _DetallePedidoState extends State<DetallePedido> {
                               ),
                             )
                           : Container(),
-                      
-                      (rol == "Cliente" && pedido.cocinado == false) || rol == "Administrador"
+                      (rol == "Cliente" && pedido.cocinado == false) ||
+                              rol == "Administrador"
                           ? GestureDetector(
                               onTap: () async {
                                 if (pedido.cocinado!) {
-SnackBarTool.showSnackbar(context,
-            text:
-                "Su comida ya está preparada, no puede cancelar");
-                                } else {
-                                  
-                                  bool cancel = await showCustomDialog(
-                                              context,
-                                              options: const [
-                                                "Alerta",
-                                                "¿Está seguro/a de cancelar el pedido?",
-                                                "Si",
-                                                "No"
-                                              ]) ??
-                                          false;
-
-                                      if (cancel) {
-                                        Navigator.of(context).pop();
-
-                                  await FirestoreManager.instance.deleteData("OrdenDel", pedido.numPedido!);
                                   SnackBarTool.showSnackbar(context,
-            text:
-                "Pedido Cancelado.");
-                                  
-                                }}
+                                      text:
+                                          "Su comida ya está preparada, no puede cancelar");
+                                } else {
+                                  bool cancel = await showCustomDialog(context,
+                                          options: const [
+                                            "Alerta",
+                                            "¿Está seguro/a de cancelar el pedido?",
+                                            "Si",
+                                            "No"
+                                          ]) ??
+                                      false;
+
+                                  if (cancel) {
+                                    Navigator.of(context).pop();
+
+                                    await FirestoreManager.instance.deleteData(
+                                        "OrdenDel", pedido.numPedido!);
+                                    SnackBarTool.showSnackbar(context,
+                                        text: "Pedido Cancelado.");
+                                  }
+                                }
                               },
                               child: Container(
                                 padding: const EdgeInsets.all(8.0),
@@ -772,7 +771,7 @@ SnackBarTool.showSnackbar(context,
       Future.delayed(Duration.zero, () {
         SnackBarTool.showSnackbar(context,
             text:
-                "$msg, recuerde presionar en 'Llegué' cuando retire/entregue el producto, y debe estar a menos de 10 metros de la ubicación que debe ir.");
+                "$msg, Recuerde presionar 'Llegué' cuando retire/entregue el producto, debe estar a menos de 10 metros de la ubicación que debe ir.");
         Navigator.push(
           context,
           MaterialPageRoute(
