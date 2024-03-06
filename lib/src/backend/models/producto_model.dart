@@ -58,49 +58,49 @@ class Producto {
         id: 1,
         cantidad: 1,
         //numProducto: json["uid"],
-        nombre: json["nombre"],
+        nombre: json["pro_nombre"],
         //estado: json["estado"],
-        categoria: json["categoria"],
-        precio: double.tryParse(json["precio"]),
-        total: double.tryParse(json["precio"]),
-        stock: int.tryParse(json["stock"]),
-        imagen: json["imagen"],
+        categoria: json["pro_categoria"],
+        precio: double.tryParse(json["pro_precio"]),
+        total: double.tryParse(json["pro_precio"]),
+        stock: int.tryParse(json["pro_stock"]),
+        imagen: json["pro_imagen"],
       );
 
   factory Producto.fromJson2(Map<String, dynamic> json) => Producto(
         id: json["id"],
-        nombre: json["nombre"],
-        categoria: json["categoria"],
-        precio: json["precio"],
+        nombre: json["pro_nombre"],
+        categoria: json["pro_categoria"],
+        precio: json["pro_precio"],
         total: json["total"],
-        stock: json["stock"],
+        stock: json["pro_stock"],
         cantidad: json["cantidad"],
-        imagen: json["imagen"],
+        imagen: json["pro_imagen"],
       );
 
   factory Producto.fromJson3(Map<String, dynamic> json) => Producto(
         id: json["id"],
-        nombre: json["nombre"],
-        precio: json["precio"].toDouble(),
+        nombre: json["pro_nombre"],
+        precio: json["pro_precio"].toDouble(),
         total: json["total"].toDouble(),
         cantidad: json["cantidad"].toInt(),
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "nombre": nombre,
-        "categoria": categoria,
-        "precio": precio,
+        "pro_nombre": nombre,
+        "pro_categoria": categoria,
+        "pro_precio": precio,
         "total": total,
-        "stock": stock,
+        "pro_stock": stock,
         "cantidad": cantidad,
-        "imagen": imagen,
+        "pro_imagen": imagen,
       };
 
   Map<String, dynamic> toJson2() => {
         "cantidad": cantidad,
-        "nombre": nombre,
-        "precio": precio,
+        "pro_nombre": nombre,
+        "pro_precio": precio,
         "total": total,
       };
 }

@@ -11,7 +11,8 @@ class ProductoService {
     List<Map<String, dynamic>> map;
 
     try {
-      var col = FirestoreManager.instance.firestore.collection("PlatosDel");
+      var col = FirestoreManager.instance.firestore.collection("producto");
+      // antes PlatosDel
       map = await FirestoreManager.instance.getData("", collection: col);
 
     } catch (ex) {
